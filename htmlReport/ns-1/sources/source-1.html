@@ -1,0 +1,185 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Account</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.CodeForPizza</a>
+</div>
+
+<h1>Coverage Summary for Class: Account (org.CodeForPizza)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Account</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (5/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.CodeForPizza;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author Emil
+&nbsp; */
+&nbsp;public class Account {
+&nbsp;    //initiate variables
+&nbsp;    int balance;
+&nbsp;
+&nbsp;    int accountNumber;
+&nbsp;
+&nbsp;    //initiate constructor
+<b class="fc">&nbsp;    public Account(int initalCash, int accountNumber) {</b>
+<b class="fc">&nbsp;        if(initalCash &lt; 0) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t have a negative balance&quot;);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            this.balance = initalCash;</b>
+&nbsp;        }
+<b class="fc">&nbsp;        if(String.valueOf(accountNumber).length() != 9) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t have an account number that is not 9 digits long&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        else if (accountNumber &lt; 0) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t have a negative account number&quot;);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            this.accountNumber = accountNumber;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @param cash takes the amout of cash to deposit
+&nbsp;     * @return returns the new balance
+&nbsp;     */
+&nbsp;    public int deposit(double cash) {
+&nbsp;
+<b class="fc">&nbsp;        if (cash &lt;= 0) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t deposit 0 or less&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        else if (cash &gt; 0) {</b>
+<b class="fc">&nbsp;            balance += cash;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return balance;</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @param cash takes the amout of cash to withdraw
+&nbsp;     * @return returns the new balance
+&nbsp;     */
+&nbsp;    public int withdraw(double cash) {
+<b class="fc">&nbsp;        if ( balance &lt; cash) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t withdraw more than you have&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        else if (cash &lt;= 0) {</b>
+<b class="fc">&nbsp;            throw new IllegalArgumentException(&quot;You can&#39;t withdraw 0&quot;);</b>
+&nbsp;        }
+<b class="fc">&nbsp;        else if (cash &gt; 0) {</b>
+<b class="fc">&nbsp;            balance -= cash;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        return balance;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return returns the balance
+&nbsp;     */
+&nbsp;    public int getBalance() {
+<b class="fc">&nbsp;        return balance;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     *
+&nbsp;     * @return returns the account number
+&nbsp;     */
+&nbsp;    public int getAccountNumber() {
+<b class="fc">&nbsp;        return accountNumber;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-06-09 12:10</div>
+</div>
+</body>
+</html>
