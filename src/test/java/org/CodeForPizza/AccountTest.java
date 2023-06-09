@@ -130,7 +130,7 @@ class AccountTest {
     }
 
     @Test
-    @DisplayName("Should pass if withdraw is 0 or less")
+    @DisplayName("Should throw exception if withdraw is 0 or less")
     void withdrawIfNegativNumber() {
         // Arrange
         sup = new Account(100, 123456789);
