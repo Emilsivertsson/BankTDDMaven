@@ -32,10 +32,10 @@ public class Account {
      * @param cash takes the amout of cash to deposit
      * @return returns the new balance
      */
-    public int deposit(int cash) {
+    public int deposit(double cash) {
 
-        if (cash == 0) {
-            return balance;
+        if (cash <= 0) {
+            throw new IllegalArgumentException("You can't deposit 0 or less");
         }
         else if (cash > 0) {
             balance += cash;
@@ -50,11 +50,11 @@ public class Account {
      * @param cash takes the amout of cash to withdraw
      * @return returns the new balance
      */
-    public int withdraw(int cash) {
+    public int withdraw(double cash) {
         if ( balance < cash) {
             throw new IllegalArgumentException("You can't withdraw more than you have");
         }
-        else if (cash == 0) {
+        else if (cash <= 0) {
             throw new IllegalArgumentException("You can't withdraw 0");
         }
         else if (cash > 0) {

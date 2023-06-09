@@ -1,5 +1,6 @@
 package org.CodeForPizza;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -62,10 +63,9 @@ class AccountTest {
     @DisplayName("should throw exception if account number is negative")
     void constructorIfAccountNrIsNegative() {
         // Arrange
-        int accountNumber = -1234789;
+        int accountNumber = -13456789;
 
-
-        // Act and Assert
+        //act & assert
         assertThrows(IllegalArgumentException.class, () -> {
             new Account(100, accountNumber);
         });
@@ -101,33 +101,16 @@ class AccountTest {
 
 
     @Test
-    @DisplayName("Should return Balance if deposit is negativt number")
-    void depositIfNegativNumber() {
-        // Arrange
-        sup = new Account(100, 123456789);
-        int value = -100;
-        int expected = 100;
-
-        // Act
-        int result = sup.deposit(value);
-
-        // Assert
-        assertEquals(expected, result);
-    }
-
-    @Test
-    @DisplayName("Should return Balance if deposit is 0")
+    @DisplayName("Should return Balance if deposit is 0 or less")
     void depositIfZero() {
         // Arrange
         sup = new Account(100, 123456789);
         int value = 0;
-        int expected = 100;
 
         // Act
-        int result = sup.deposit(value);
-
-        // Assert
-        assertEquals(expected, result);
+        assertThrows(IllegalArgumentException.class, () -> {
+            sup.deposit(value);
+        });
     }
 
 
@@ -147,18 +130,16 @@ class AccountTest {
     }
 
     @Test
-    @DisplayName("Should return 100 if withdraw negativt number")
+    @DisplayName("Should pass if withdraw is 0 or less")
     void withdrawIfNegativNumber() {
         // Arrange
         sup = new Account(100, 123456789);
         int value = -100;
-        int expected = 100;
 
         // Act
-        int result = sup.withdraw(value);
-
-        // Assert
-        assertEquals(expected, result);
+        assertThrows(IllegalArgumentException.class, () -> {
+            sup.withdraw(value);
+        });
     }
 
     @Test
