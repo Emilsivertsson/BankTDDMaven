@@ -219,6 +219,7 @@ class AccountTest {
 
 
     @Test
+    @DisplayName("Should pass if account number is 123456789")
     void getAccountNumber123456789() {
         // Arrange
         sup = new Account(100, 123456789);
@@ -231,6 +232,7 @@ class AccountTest {
     }
 
     @Test
+    @DisplayName("Should pass if account number is not 123456789")
     void getAccountNumberNot123456789() {
         // Arrange
         sup = new Account(100, 123456789);
